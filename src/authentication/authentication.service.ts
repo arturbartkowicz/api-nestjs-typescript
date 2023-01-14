@@ -4,6 +4,7 @@ import { RegisterDto } from "./dto/register.dto";
 import * as bcrypt from 'bcrypt';
 import PostgresErrorCode from 'src/database/postgresErrorCode.enum';
 
+@Injectable()
 export class AuthenticationService {
   constructor(
     private readonly usersService: UsersService
