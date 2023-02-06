@@ -24,7 +24,7 @@ export class AuthenticationService {
         password: hashedPassword
       })
       // protects for sending a password in a response
-      createdUser.password = undefined
+      // createdUser.password = undefined
 
       return createdUser
     } catch(err) {
