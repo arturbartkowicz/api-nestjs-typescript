@@ -1,12 +1,11 @@
 import {
   Body,
+  ClassSerializerInterceptor,
   Controller,
   Get,
   HttpCode,
   Post,
   Req,
-  Res,
-  SerializeOptions,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
@@ -14,10 +13,10 @@ import { AuthenticationService } from './authentication.service';
 import { RegisterDto } from './dto/register.dto';
 import { LocalAuthenticationGuard } from './localAuthentication.guard';
 import RequestWithUser from './requestWithUser.interface';
-import { Response } from 'express';
 import JwtAuthenticationGuard from './jwtAuthentication.guard';
 
 @Controller('authentication')
+@UseInterceptors(ClassSerializerInterceptor)
 export class AuthenticationController {
   constructor(private readonly authenticationService: AuthenticationService) {}
 
