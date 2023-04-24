@@ -14,7 +14,7 @@ export default class CategoriesService {
   ) {}
 
   getAllCategories() {
-    console.log('kdjn')
+    console.log('kdjn');
     return this.categoriesRepository.find({ relations: ['posts'] });
   }
 

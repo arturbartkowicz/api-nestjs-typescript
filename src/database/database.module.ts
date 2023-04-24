@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
- 
+
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
@@ -17,7 +17,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
         synchronize: true,
         logging: true,
-      })
+      }),
     }),
   ],
 })

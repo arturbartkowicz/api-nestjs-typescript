@@ -19,13 +19,11 @@ import UpdateCategoryDto from './dto/updateCategory.dto';
 @Controller('categories')
 @UseInterceptors(ClassSerializerInterceptor)
 export default class CategoriesController {
-  constructor(
-    private readonly categoriesService: CategoriesService
-  ) {}
+  constructor(private readonly categoriesService: CategoriesService) {}
 
   @Get()
   getAllCategories() {
-    return this.categoriesService.getAllCategories()
+    return this.categoriesService.getAllCategories();
   }
 
   @Get(':id')
@@ -36,11 +34,14 @@ export default class CategoriesController {
   @Post()
   @UseGuards(JwtAuthenticationGuard)
   async createCategory(@Body() category: CreateCategoryDto) {
-    return this.categoriesService.createCategory(category)
+    return this.categoriesService.createCategory(category);
   }
 
   @Patch(':id')
-  async updateCategory(@Param() { id }: FindOneParams, @Body() category: UpdateCategoryDto) {
+  async updateCategory(
+    @Param() { id }: FindOneParams,
+    @Body() category: UpdateCategoryDto,
+  ) {
     return this.categoriesService.updateCategory(Number(id), category);
   }
   @Delete(':id')

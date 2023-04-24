@@ -10,9 +10,11 @@ import mockedConfigService from '../../utils/mocks/config.service';
 
 describe('The AuthenticationService', () => {
   let authenticationService: AuthenticationService;
+
   beforeEach(async () => {
     const module = await Test.createTestingModule({
       providers: [
+        UsersService,
         AuthenticationService,
         {
           provide: ConfigService,
@@ -26,7 +28,6 @@ describe('The AuthenticationService', () => {
           provide: getRepositoryToken(User),
           useValue: {},
         },
-        UsersService,
       ],
     }).compile();
 
