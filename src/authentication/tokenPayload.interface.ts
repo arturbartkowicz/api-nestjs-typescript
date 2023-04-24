@@ -2,4 +2,4 @@ interface TokenPayload {
   userId: number;
 }
 
-export default TokenPayload
+export default TokenPayload;
